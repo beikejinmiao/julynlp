@@ -1,0 +1,4 @@
+http://www.pudn.com/Download/item/id/2435241.html
+
+微软亚洲研究院 msra 命名实体识别数据集
+5 万多条中文命名实体识别标注数据（包括地点、机构、人物）

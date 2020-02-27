@@ -15,10 +15,10 @@ build/
 .idea/
 
 # project
-Attention_Seq2Seq_Chatbot/corpus
-Attention_Seq2Seq_Chatbot/image
-Intelligent_QuaAndAns/Data
-LSTM_CRF_NER/data_path
-LSTM_CRF_NER/data_path_save
-LSTM_CRF_NER/pics
+#Attention_Seq2Seq_Chatbot/corpus
+#Attention_Seq2Seq_Chatbot/image
+#Intelligent_QuaAndAns/Data
+#LSTM_CRF_NER/data_path
+LSTM_CRF_NER/data_path_save/model
+#LSTM_CRF_NER/pics
 
