@@ -5,12 +5,12 @@ from time import time as t
 import shutil
 import pandas as pd
 
-from Config.allconfig import *
-from Filter_sentence import (get_same_rate, length_difference_rate,
+from Intelligent_QuaAndAns.Config.allconfig import *
+from Intelligent_QuaAndAns.Filter_sentence import (get_same_rate, length_difference_rate,
                              load_target_sentence)
-from Model.ES_model import ES_Model
-from Model.TfIdf_model import Tf_Idf_Model
-from Preproce_Data.Data import DataPreproce
+from Intelligent_QuaAndAns.Model.ES_model import ES_Model
+from Intelligent_QuaAndAns.Model.TfIdf_model import Tf_Idf_Model
+from Intelligent_QuaAndAns.Preproce_Data.Data import DataPreproce
 
 
 class Intelligent_QuaAndAns(object):

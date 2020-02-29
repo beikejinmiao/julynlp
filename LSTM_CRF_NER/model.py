@@ -4,9 +4,9 @@ import tensorflow as tf
 from tensorflow.contrib.rnn import LSTMCell
 from tensorflow.contrib.crf import crf_log_likelihood
 from tensorflow.contrib.crf import viterbi_decode
-from data import pad_sequences, batch_yield
-from utils import get_logger
-from eval import conlleval
+from LSTM_CRF_NER.data import pad_sequences, batch_yield
+from LSTM_CRF_NER.utils import get_logger
+from LSTM_CRF_NER.eval import conlleval
 
 
 class BiLSTM_CRF(object):

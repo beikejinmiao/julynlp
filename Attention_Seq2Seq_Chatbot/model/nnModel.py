@@ -247,7 +247,7 @@ class Seq2Seq:
 		return loss.item() / nTotal
 
 
-from model.corpusSolver import seq2id, id2seq, filter_sent
+from Attention_Seq2Seq_Chatbot.model.corpusSolver import seq2id, id2seq, filter_sent
 
 
 class ChatBot:

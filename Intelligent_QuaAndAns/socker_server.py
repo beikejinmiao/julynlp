@@ -4,7 +4,7 @@ import json
 import os
 import socketserver
 
-from Intelligent_QuaAndAns import ThreadRun
+from Intelligent_QuaAndAns.main import ThreadRun
 
 
 class Server(socketserver.BaseRequestHandler):

@@ -4,7 +4,8 @@ import torch, warnings
 warnings.filterwarnings("ignore")
 
 print('Loading the model...')
-chatBot = ChatBot('model_L_general_all.pkl', device=torch.device('cuda:0'))
+# chatBot = ChatBot('model_L_general_all.pkl', device=torch.device('cuda:0'))
+chatBot = ChatBot('model.pkl')
 print('Finished...')
 
 allRandomChoose, showInfo = False, False

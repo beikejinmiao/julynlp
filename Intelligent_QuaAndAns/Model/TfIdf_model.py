@@ -8,7 +8,7 @@ import os
 
 import gensim
 import jieba
-from Config.allconfig import *
+from Intelligent_QuaAndAns.Config.allconfig import *
 
 
 class Tf_Idf_Model(object):
