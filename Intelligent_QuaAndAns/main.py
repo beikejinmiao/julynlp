@@ -136,9 +136,8 @@ def parse_args(context_file_name=None, stoplist_name=None, input_sentence=None, 
     use_id = context_file_name.split('_')[0]
     newcontext_file = context_file_name.split(".")[0] + "_context.csv"
     print("use_id:", use_id)
-
+    print("is_build:", is_build)
     if is_build:
-        print("jjjj")
         if os.path.exists(os.path.join(pathconfig.OTHER_DATA_PATH, use_id)):
             shutil.rmtree(os.path.join(pathconfig.OTHER_DATA_PATH, use_id))
             os.makedirs(os.path.join(pathconfig.OTHER_DATA_PATH, use_id))
@@ -155,7 +154,6 @@ def parse_args(context_file_name=None, stoplist_name=None, input_sentence=None, 
         else:
             os.makedirs(os.path.join(pathconfig.DF_DATA_PATH, use_id))
     else:
-        print("ssss")
         if not os.path.exists(os.path.join(pathconfig.CSV_DATA_PATH, use_id)):
             os.makedirs(os.path.join(pathconfig.CSV_DATA_PATH, use_id))
         if not os.path.exists(os.path.join(pathconfig.OTHER_DATA_PATH, use_id)):

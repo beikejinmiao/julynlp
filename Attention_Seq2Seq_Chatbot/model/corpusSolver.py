@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 
 class Corpus:
 	def __init__(self, filePath, maxSentenceWordsNum=-1, id2word=None, word2id=None, wordNum=None, tfidf=False,
-				 QIDF=None, AIDF=None, testSize=0.0):
+				 QIDF=None, AIDF=None, testSize=0.2):
 		self.id2word, self.word2id, self.wordNum = id2word, word2id, wordNum
 		with open(filePath, 'r', encoding='utf8') as f:
 			txt = self._purify(f.readlines()) # 过滤替换 特殊字符
