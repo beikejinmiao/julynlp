@@ -1,28 +1,25 @@
-"""配置文件
+"""
+配置文件
 """
 import os
-
 from easydict import EasyDict as edict
 
-# base_path=os.path.abspath('.')
-# base_path="D:\machinelearning\kuaixue-project\web-django\Intelligent_QuaAndAns"
-abspath = os.path.abspath('.')  # 返回该文件的当前绝对路径
-root_path = os.path.dirname(abspath)  # 返回该文件的上一层路径
-base_path = os.path.join(os.path.join(root_path, 'Intelligent_QuaAndAns'))  # 返回项目主入口文件的路径
-print("abspath:"+abspath)
-print("root_path:"+root_path)
-print("base_path:"+base_path)
+
+MAIN_HOME = os.path.abspath(os.path.dirname(__file__))  # 返回项目主入口文件的路径
+
+
+print("base_path: ", MAIN_HOME)
 # 路径相关参数
 pathconfig = edict()
-pathconfig.BASE_PATH = base_path
+pathconfig.base_path = MAIN_HOME
 pathconfig.DF_DATA_PATH = os.path.join(
-    os.path.join(abspath, 'Data'), 'df_Data')
+    os.path.join(MAIN_HOME, 'Data'), 'df_Data')
 pathconfig.CSV_DATA_PATH = os.path.join(
-    os.path.join(abspath, 'Data'), 'csv_Data')
+    os.path.join(MAIN_HOME, 'Data'), 'csv_Data')
 pathconfig.JSON_DATA_PATH = os.path.join(
-    os.path.join(abspath, 'Data'), 'json_Data')
+    os.path.join(MAIN_HOME, 'Data'), 'json_Data')
 pathconfig.OTHER_DATA_PATH = os.path.join(
-    os.path.join(abspath, 'Data'), 'other_Data')
+    os.path.join(MAIN_HOME, 'Data'), 'other_Data')
 
 # d2v 模型训练相关参数
 default_d2v_trainConfig = edict()

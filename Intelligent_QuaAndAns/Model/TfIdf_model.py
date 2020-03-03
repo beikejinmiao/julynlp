@@ -3,12 +3,11 @@
 # @Author  :
 """tfidf 模型
 """
+import json
 import argparse
-import os
-
 import gensim
 import jieba
-from Intelligent_QuaAndAns.Config.allconfig import *
+from Intelligent_QuaAndAns.config import *
 
 
 class Tf_Idf_Model(object):
@@ -117,19 +116,16 @@ class Tf_Idf_Model(object):
 
 
 def parse_args():
-    path=os.path.abspath ('..')
-    file_name = 'v_train.json'
-    stoplist_name = 'stop_words.txt'
-    # os.path.join(pathconfig.OTHER_DATA_PATH,stoplist_name)
     parser = argparse.ArgumentParser(description='Generate the json file')
-    # parser.add_argument('--jsondata_file', help='jsondata_file', default=os.path.join(pathconfig.JSON_DATA_PATH,file_name), type=str)
     parser.add_argument('--jsondata_file', help='jsondata_file',
-                        default=r'E:\2018\self-study\panchuang\w-web5\Intelligent_QuaAndAns\Data\json_Data\1\1_2018-08-14-18-43-11_context.json', type=str)
-    parser.add_argument('--stop_words_file', help='stop_words_file', default=r'E:\2018\self-study\panchuang\w-web5\Intelligent_QuaAndAns\Data\other_Data', type=str)
-    parser.add_argument ('--dictionary_filepath', help='dictionary_filename', default=r'E:\2018\self-study\panchuang\w-web5\Intelligent_QuaAndAns\Data\other_Data\question_dictionary1.dict', type=str)
+                        default=os.path.join(pathconfig.JSON_DATA_PATH, '1', '1_2018-08-14-18-43-11_context.json'), type=str)
+    parser.add_argument('--stop_words_file', help='stop_words_file',
+                        default=os.path.join(pathconfig.OTHER_DATA_PATH, 'stop_words.txt'), type=str)
+    parser.add_argument('--dictionary_filepath', help='dictionary_filename',
+                         default=os.path.join(pathconfig.OTHER_DATA_PATH, '1', '1_2018-08-14-18-43-11_context.dict'), type=str)
     args = parser.parse_args()
     return args
-import json
+
 
 if __name__ == '__main__':
     args = parse_args()

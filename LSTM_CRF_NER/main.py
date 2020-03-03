@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
-import os, argparse, time, random
+import os, argparse, time
+from LSTM_CRF_NER.config import MAIN_HOME
 from LSTM_CRF_NER.model import BiLSTM_CRF
 from LSTM_CRF_NER.utils import str2bool, get_logger, get_entity
 from LSTM_CRF_NER.data import read_corpus, read_dictionary, tag2label, random_embedding
@@ -12,7 +13,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # default: 0
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 config.gpu_options.per_process_gpu_memory_fraction = 0.2  # need ~700MB GPU memory
-
 
 ## hyperparameters
 parser = argparse.ArgumentParser(description='BiLSTM-CRF for Chinese NER task')
@@ -36,7 +36,7 @@ args = parser.parse_args()
 
 
 ## get char embeddings
-word2id = read_dictionary(os.path.join('.', args.train_data, 'word2id.pkl'))
+word2id = read_dictionary(os.path.join(MAIN_HOME, args.train_data, 'word2id.pkl'))
 if args.pretrain_embedding == 'random':
     embeddings = random_embedding(word2id, args.embedding_dim)
 else:
@@ -46,8 +46,8 @@ else:
 
 ## read corpus and get training data
 if args.mode != 'demo':
-    train_path = os.path.join('.', args.train_data, 'train_data')
-    test_path = os.path.join('.', args.test_data, 'test_data')
+    train_path = os.path.join(MAIN_HOME, args.train_data, 'train_data')
+    test_path = os.path.join(MAIN_HOME, args.test_data, 'test_data')
     train_data = read_corpus(train_path)
     test_data = read_corpus(test_path); test_size = len(test_data)
 
@@ -55,7 +55,7 @@ if args.mode != 'demo':
 ## paths setting
 paths = {}
 timestamp = str(int(time.time())) if args.mode == 'train' else args.demo_model
-output_path = os.path.join('.', args.train_data+"_save", timestamp)
+output_path = os.path.join(MAIN_HOME, args.train_data+"_save", timestamp)
 if not os.path.exists(output_path): os.makedirs(output_path)
 summary_path = os.path.join(output_path, "summaries")
 paths['summary_path'] = summary_path

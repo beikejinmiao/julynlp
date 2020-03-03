@@ -8,10 +8,12 @@ import json
 import time
 from gensim.models.doc2vec import Doc2Vec
 
+
 class Doc2vec_model:
     def __init__(self):
         self.cwd = os.getcwd()
         # with open(self.cwd + r'\X_train.json', 'r') as f:
+        # TODO There is not 'X_train.json' in project of 'Intelligent_QuaAndAns'
         with open(os.path.join(self.cwd, 'X_train.json'), 'r') as f:
             data = json.load(f)
             self.titles = []  # 未分词的问题

@@ -1,4 +1,5 @@
 import jieba
+import json
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 
@@ -81,6 +82,7 @@ class ES_Model(object):
         results_1 = {'title': sentences, 'split_title': split_sent}
         # print("split_sent:",split_sent)
         query = {'query': {"match": {"context": split_sent}}}
+        print('es search: ', json.dumps(query, ensure_ascii=False))
 
         allDoc = self.es.search(index=self.index_name,
                                 doc_type=self.doc_type_name, body=query)

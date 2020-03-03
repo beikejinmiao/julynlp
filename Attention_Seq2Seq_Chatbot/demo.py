@@ -1,11 +1,12 @@
+from Attention_Seq2Seq_Chatbot.config import model_path
 from Attention_Seq2Seq_Chatbot.model.nnModel import ChatBot
-import torch, warnings
+import warnings
 
 warnings.filterwarnings("ignore")
 
 print('Loading the model...')
 # chatBot = ChatBot('model_L_general_all.pkl', device=torch.device('cuda:0'))
-chatBot = ChatBot('model.pkl')
+chatBot = ChatBot(model_path)
 print('Finished...')
 
 allRandomChoose, showInfo = False, False

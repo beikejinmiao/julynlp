@@ -1,4 +1,5 @@
 import os
+from LSTM_CRF_NER.config import MAIN_HOME
 
 
 def conlleval(label_predict, label_path, metric_path):
@@ -9,7 +10,7 @@ def conlleval(label_predict, label_path, metric_path):
     :param metric_path:
     :return:
     """
-    eval_perl = "./conlleval_rev.pl"
+    eval_perl = os.path.join(MAIN_HOME, "conlleval_rev.pl")
     with open(label_path, "w") as fw:
         line = []
         for sent_result in label_predict:
@@ -23,4 +24,4 @@ def conlleval(label_predict, label_path, metric_path):
     with open(metric_path) as fr:
         metrics = [line.strip() for line in fr]
     return metrics
-    
+
